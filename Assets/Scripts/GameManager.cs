@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnEnemyRandomly(int num)
     {
+
         enemyArr = new NavMeshEnemyAI[num];
         for (int i = 0; i < num; i++)
 
