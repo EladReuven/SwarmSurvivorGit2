@@ -19469,6 +19469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2d12b8e3fd8a249b74483f54b73ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
 --- !u!54 &7142374226643117020
 Rigidbody:
   m_ObjectHideFlags: 0

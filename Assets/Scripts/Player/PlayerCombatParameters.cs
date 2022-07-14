@@ -52,17 +52,6 @@ public class PlayerCombatParameters : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            FindObjectOfType<AudioManager>().Play("oof");
-            hp--;
-            StartCoroutine(IFrames());
-        }
-    }
-
     public void LevelUp()
     {
         FindObjectOfType<AudioManager>().Play("pokemonLevelUp");
@@ -81,23 +70,22 @@ public class PlayerCombatParameters : MonoBehaviour
         }
     }
 
-    public void UpgradeAbility()
-    {
-        Time.timeScale = 0;
-    }
 
     private bool IsDead()
     {
         return hp <= 0;
     }
 
-    private IEnumerator IFrames()
+
+    public void HitColor()
     {
         playerbody.GetComponent<MeshRenderer>().material = flashColor;
-        //triggerCollider.enabled = false;
-        yield return new WaitForSeconds(iframesDuration);
-        //triggerCollider.enabled = true;
+    }
+
+    public void RegularColor()
+    {
         playerbody.GetComponent<MeshRenderer>().material = regularColor;
 
     }
+
 }

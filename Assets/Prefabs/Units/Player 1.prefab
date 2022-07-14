@@ -258,12 +258,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb55794b325c85f4db2cf6f71d358ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7469413103785088573, guid: c03ba8e391f71c24c841e58062d4631c, type: 3}
   projectileSpawnTransform: {fileID: 1036166172678105252}
-  delayBetweenProjectiles: 1
-  projectileLaunchForce: 10
+  projectilePrefab: {fileID: 0}
   minRotation: -15
   maxRotation: 15
+  delayBetweenProjectiles: 1
+  projectileLaunchForce: 10
 --- !u!114 &518157136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,10 +276,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a949a405619ab2e4d9764021529cee4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectilePrefabArr:
+  - {fileID: 7469413103785088573, guid: c03ba8e391f71c24c841e58062d4631c, type: 3}
+  - {fileID: 7469413103785088573, guid: c03ba8e391f71c24c841e58062d4631c, type: 3}
+  - {fileID: 5186999078524295870, guid: c72ba86b8cc483a438c794ac243fd70b, type: 3}
   youDied: {fileID: 0}
   hp: 10
   level: 1
-  score: 0
+  iframesDuration: 0.2
+  triggerCollider: {fileID: 1036166171928323983}
+  regularColor: {fileID: 2100000, guid: fc697242f5dd2a0449e6ef144a411be7, type: 2}
+  flashColor: {fileID: 2100000, guid: ab6aba556b799c644a9e198e7e075c12, type: 2}
+  playerbody: {fileID: 1819353038912809887}
 --- !u!1 &1036166172096291940
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166172678105253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.293}
+  m_LocalPosition: {x: 0, y: 0, z: 0.543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8091935772149643070}

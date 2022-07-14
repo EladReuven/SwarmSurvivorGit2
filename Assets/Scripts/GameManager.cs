@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("started");
         FindObjectOfType<AudioManager>().Play("gameMusic");
         instance = this;
         SpawnEnemyRandomly(enemiesPerWave);

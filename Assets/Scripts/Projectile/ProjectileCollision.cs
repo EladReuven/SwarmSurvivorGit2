@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -14,12 +14,13 @@ public class ProjectileCollision : MonoBehaviour
             GameManager.instance.enemiesDead++;
             Score.instance.points += 50;
             Destroy(gameObject);
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
         }
         else if(!other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
+        
     }
 
 }

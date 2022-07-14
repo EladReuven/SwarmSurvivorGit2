@@ -17,6 +17,7 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
+        if(scoreText != null)
         scoreText.text = "Highest Score: " + highScore + "!!!";
     }
 
