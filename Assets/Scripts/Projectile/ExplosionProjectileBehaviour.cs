@@ -6,7 +6,7 @@ public class ExplosionProjectileBehaviour : MonoBehaviour
 {
     public GameObject explosionImpactEffect;
     public GameObject explosionGroundEffect;
-    public GameObject explotionCollider;
+    public GameObject explosionCollider;
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,11 +16,10 @@ public class ExplosionProjectileBehaviour : MonoBehaviour
             RaycastHit hit;
             Ray downRay = new Ray(transform.position, -Vector3.up);
             Instantiate(explosionImpactEffect, transform.position, explosionImpactEffect.transform.rotation);
-            Instantiate(explotionCollider, transform.position, explotionCollider.transform.rotation);
+            Instantiate(explosionCollider, transform.position, explosionCollider.transform.rotation);
             FindObjectOfType<AudioManager>().Play("explosion");
             if (Physics.Raycast(downRay, out hit))
             {
-
                 Instantiate(explosionGroundEffect, hit.point, explosionGroundEffect.transform.rotation);
             }
             Destroy(gameObject);

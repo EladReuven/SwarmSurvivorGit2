@@ -9,11 +9,11 @@ public class ProjectileLauncher : MonoBehaviour
 
     [SerializeField] private GameObject projectilePrefab;
 
+    public float minRotation, maxRotation;
   
     [SerializeField] private float delayBetweenProjectiles;
     [SerializeField] private float projectileLaunchForce;
     
-    [SerializeField] private float minRotation, maxRotation;
 
 
     private void Start()

@@ -8,7 +8,8 @@ public class PlayerCombatParameters : MonoBehaviour
 
     public GameObject[] ProjectilePrefabArr;
     public GameObject youDied;
-    private bool lvlUp = false;
+    private bool lvl1 = false;
+    private bool lvl2 = false;
 
     public int hp = 10; 
     public int level = 1;
@@ -30,15 +31,21 @@ public class PlayerCombatParameters : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.instance.enemiesDead > 25 && lvlUp == false)
+        if(GameManager.instance.enemiesDead >= 10 && lvl1 == false)
         {
-            Debug.Log("LEVELED UP");
+            Debug.Log("LEVELED UP 1");
             LevelUp();
-            lvlUp = true;
+        }
+        else if(GameManager.instance.enemiesDead >= 25 && lvl2 == false)
+        {
+            Debug.Log("LEVELED UP UPDATE");
+
+            LevelUp();
         }
 
         if(IsDead())
         {
+            Score.instance.updateHighScore();
             gameObject.SetActive(false);
             youDied.SetActive(true);
         }
@@ -58,7 +65,20 @@ public class PlayerCombatParameters : MonoBehaviour
 
     public void LevelUp()
     {
-        level++;
+        FindObjectOfType<AudioManager>().Play("pokemonLevelUp");
+        if (GameManager.instance.enemiesDead >= 10 && lvl1 == false)
+        {
+            GetComponent<ProjectileLauncher>().minRotation = 0;
+            GetComponent<ProjectileLauncher>().maxRotation = 0;
+            lvl1 = true;
+            level++;
+        }
+        else if(GameManager.instance.enemiesDead >= 25 && lvl2 == false)
+        {
+            Debug.Log("LEVELED UP method");
+            level++;
+            lvl2 = true;
+        }
     }
 
     public void UpgradeAbility()

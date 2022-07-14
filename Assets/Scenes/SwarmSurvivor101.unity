@@ -1496,6 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bd1251b3846844a59026a80192353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
   points: 0
 --- !u!1 &246141208
 GameObject:
@@ -4986,7 +4987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795746431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 894051880}
@@ -5409,7 +5410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887740913}
   m_LocalRotation: {x: 0.000000042375174, y: -0.9998208, z: 0.018929781, w: 0.000002250075}
-  m_LocalPosition: {x: -8.962586, y: -0.41999996, z: -33.940094}
+  m_LocalPosition: {x: -8.962586, y: -0.41999996, z: -32.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4703973903576819706}
@@ -6535,13 +6536,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107721473}
-  m_LocalRotation: {x: -0.04263971, y: -0.77776504, z: 0.05307213, w: -0.6248573}
-  m_LocalPosition: {x: 40.64986, y: 2.05, z: -65.12946}
+  m_LocalRotation: {x: -0.003707105, y: -0.77892417, z: 0.021770122, w: -0.6267292}
+  m_LocalPosition: {x: 40.62, y: 0.60175467, z: -67.87}
   m_LocalScale: {x: 2.3754995, y: 2.3755, z: 2.3754992}
   m_Children: []
   m_Father: {fileID: 2105158697}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 7.807, y: -257.557, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.21, y: -257.665, z: -1.234}
 --- !u!23 &1107721475
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8513,7 +8514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500198015}
   m_LocalRotation: {x: -0.35355458, y: -0.6123718, z: -0.6123718, w: 0.35355458}
-  m_LocalPosition: {x: -30.454155, y: -2.25, z: -42.447384}
+  m_LocalPosition: {x: -30.454155, y: -2.25, z: -38.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4703973903576819706}
@@ -10638,6 +10639,7 @@ MonoBehaviour:
   enemiesPerWave: 10
   enemiesAlive: 0
   enemiesDead: 0
+  ready4NextWave: 0
 --- !u!4 &2058454341
 Transform:
   m_ObjectHideFlags: 0
@@ -11255,7 +11257,7 @@ PrefabInstance:
       objectReference: {fileID: 518157134}
     - target: {fileID: 518157136, guid: 3836660b8526ba04db0cf4ec2083b823, type: 3}
       propertyPath: ProjectilePrefabArr.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 518157136, guid: 3836660b8526ba04db0cf4ec2083b823, type: 3}
       propertyPath: ProjectilePrefabArr.Array.data[0]
@@ -11263,6 +11265,10 @@ PrefabInstance:
       objectReference: {fileID: 7469413103785088573, guid: c03ba8e391f71c24c841e58062d4631c, type: 3}
     - target: {fileID: 518157136, guid: 3836660b8526ba04db0cf4ec2083b823, type: 3}
       propertyPath: ProjectilePrefabArr.Array.data[1]
+      value: 
+      objectReference: {fileID: 7469413103785088573, guid: c03ba8e391f71c24c841e58062d4631c, type: 3}
+    - target: {fileID: 518157136, guid: 3836660b8526ba04db0cf4ec2083b823, type: 3}
+      propertyPath: ProjectilePrefabArr.Array.data[2]
       value: 
       objectReference: {fileID: 5186999078524295870, guid: c72ba86b8cc483a438c794ac243fd70b, type: 3}
     - target: {fileID: 1036166171928323971, guid: 3836660b8526ba04db0cf4ec2083b823, type: 3}
@@ -11686,7 +11692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.data[0].loop
@@ -11737,6 +11743,18 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a28cccbd542595545bb49412bdbd2752, type: 3}
+    - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: pokemonLevelUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
+      propertyPath: sounds.Array.data[5].time
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.data[2].pitch
       value: 0.43
       objectReference: {fileID: 0}
@@ -11749,8 +11767,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.data[2].volume
@@ -11762,6 +11784,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
       propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598864779506161401, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
+      propertyPath: sounds.Array.data[5].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7598864779506161402, guid: c8100547921d2574b8dbac38bfa93656, type: 3}
@@ -11826,7 +11852,7 @@ GameObject:
   - component: {fileID: 3789550082143853153}
   m_Layer: 0
   m_Name: Scattered Ruins
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

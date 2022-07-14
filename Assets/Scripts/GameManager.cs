@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     public GameObject menuTemplate;
     public GameObject menu;
 
-    public int timeBetweenWaves = 5;
+    public float timeBetweenWaves = 5;
     public int enemiesPerWave;
     public int enemiesAlive = 0;
     public int enemiesDead = 0;
+    public bool ready4NextWave = false;
 
     private int locationIndex;
+    private float currentTimeBetweenWaves;
 
     
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
         SpawnEnemyRandomly(enemiesPerWave);
         menu = Instantiate(menuTemplate);
         menu.SetActive(false);
+        currentTimeBetweenWaves = timeBetweenWaves;
     }
 
     private void Update()
@@ -47,46 +50,24 @@ public class GameManager : MonoBehaviour
 
         if(enemiesAlive <=0)
         {
-            StartCoroutine(CountdownBetweenWaves(timeBetweenWaves));
-            SpawnEnemyRandomly(enemiesPerWave);
-            enemiesPerWave = (int)((float)enemiesPerWave * 1.1f);
-        }
-    }
-
-    private void FillPausedEnemyTransform()
-    {
-        pausedEnemyArr = new NavMeshEnemyAI[enemyArr.Length];
-        
-        for(int i = 0; i < enemyArr.Length; i++)
-        {
-             pausedEnemyArr[i] = enemyArr[i];
-        }
-
-    }
-
-    public void SpawnEnemyAfterPause()
-    {
-        for(int i = 0; i < enemyArr.Length; i++)
-        {
-            if(pausedEnemyArr[i] != null)
+            if(currentTimeBetweenWaves <= 0)
             {
-
-                //Vector3 spawnPosition = pausedEnemyArr[i].transform.position;
-                NavMeshEnemyAI instadEnemyMeshAI = Instantiate(pausedEnemyArr[i]);
-                instadEnemyMeshAI.movePositionTransform = player.transform;
-                enemyArr[i] = instadEnemyMeshAI;
+                SpawnEnemyRandomly(enemiesPerWave);
+                currentTimeBetweenWaves = timeBetweenWaves;
+            }
+            else
+            {
+                currentTimeBetweenWaves -= Time.deltaTime;
+                Debug.Log(currentTimeBetweenWaves);
             }
         }
     }
 
     private void SpawnEnemyRandomly(int num)
     {
-
         enemyArr = new NavMeshEnemyAI[num];
         for (int i = 0; i < num; i++)
-
         {
-
             locationIndex = Random.Range(0, spawnLocationsList.Length);
             Vector3 spawnPosition = new Vector3(Random.Range(spawnLocationsList[locationIndex].bounds.min.x, spawnLocationsList[locationIndex].bounds.max.x),
                 spawnLocationsList[locationIndex].bounds.max.y, Random.Range(spawnLocationsList[locationIndex].bounds.min.z, spawnLocationsList[locationIndex].bounds.max.z));
@@ -95,14 +76,8 @@ public class GameManager : MonoBehaviour
             enemyArr[i] = instadEnemyMeshAI;
             enemiesAlive++;
         }
+        enemiesPerWave = (int)((float)enemiesPerWave * 1.1f);
     }
-
-    IEnumerator CountdownBetweenWaves(int sec)
-    {
-        yield return new WaitForSeconds(sec);
-    }
-
-
 
     [ContextMenu("Destroy Enemy Array")]
     public void DestroyEnemies()

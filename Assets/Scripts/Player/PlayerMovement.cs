@@ -9,10 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 5.00f;
     public float turnSmoothTime = 0.1f;
-    private float TurnVelocity;
-
-
-
 
     void Update()
     {
@@ -24,18 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-
             characterController.Move(direction * speed * Time.deltaTime);
         }
         RotatePlayerToMouse();
     }
-
-    //void RotatePlayerToMovementDir(Vector3 direction)
-    //{
-    //    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-    //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref TurnVelocity, turnSmoothTime);
-    //    transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
-    //}
 
     void RotatePlayerToMouse()
     {

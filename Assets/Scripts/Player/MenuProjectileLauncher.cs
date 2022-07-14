@@ -20,12 +20,6 @@ public class MenuProjectileLauncher : MonoBehaviour
         StartCoroutine(BasicProjectilePerDelay());
     }
 
-    //private void Update()
-    //{
-    //    projectilePrefab = PlayerCombatParameters.instance.ProjectilePrefabArr[PlayerCombatParameters.instance.level - 1];
-    //}
-
-
     private IEnumerator BasicProjectilePerDelay()
     {
         while (true)
@@ -33,7 +27,6 @@ public class MenuProjectileLauncher : MonoBehaviour
             GameObject projectileInstance = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectileSpawnTransform.rotation * Quaternion.Euler(0, Random.Range(minRotation, maxRotation), 0));
             projectileInstance.GetComponent<Rigidbody>().AddForce(projectileInstance.transform.forward * projectileLaunchForce, ForceMode.VelocityChange);
             yield return new WaitForSeconds(delayBetweenProjectiles);
-
         }
     }
 }

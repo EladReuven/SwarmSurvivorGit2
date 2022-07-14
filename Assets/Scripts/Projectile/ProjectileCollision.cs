@@ -16,6 +16,10 @@ public class ProjectileCollision : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+        else if(!other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

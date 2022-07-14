@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionImpactEffect: {fileID: 5638185145062312703, guid: d07e5ebcf8fbb8c4eaa8a8fa2275415f, type: 3}
   explosionGroundEffect: {fileID: 3040112393009999329, guid: cd8a6627707056443a86635cba7ecd03, type: 3}
-  explotionCollider: {fileID: 6004776486104359208, guid: 6041fb32c3c9b4b4a8f03d34414601ce, type: 3}
+  explosionCollider: {fileID: 6004776486104359208, guid: 6041fb32c3c9b4b4a8f03d34414601ce, type: 3}
 --- !u!1001 &3585028936103504795
 PrefabInstance:
   m_ObjectHideFlags: 0
